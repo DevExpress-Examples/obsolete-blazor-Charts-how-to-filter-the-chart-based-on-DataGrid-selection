@@ -1,0 +1,50 @@
+﻿@page "/"
+@using Charts.Models
+
+<h1>Sales</h1>
+
+<DxDataGrid Data=@GridData ShowFilterRow="true" PageSize="20" SingleSelectedDataRowChanged="@SelectedRecordChanged" DataNavigationMode="@DataGridNavigationMode.VirtualScrolling">
+    <DxDataGridColumn Field=@nameof(Sales.Year) Width="150px"></DxDataGridColumn>
+</DxDataGrid>
+
+<DxChart Data="@SelectedChartData">
+
+    <DxChartBarSeries Name="@Year.ToString()" ArgumentField="@((Sales s) => s.City)" ValueField="@((Sales s) => s.Amount)">
+        <DxChartSeriesLabel Visible="false" />
+    </DxChartBarSeries>
+
+    <DxChartLegend Position="@RelativePosition.Outside" HorizontalAlignment="@HorizontalAlignment.Right" />
+
+    <DxChartValueAxis Name="TotalAxis" Position="@HorizontalEdge.Left">
+        <DxChartAxisTitle Text="@nameof(Sales.Amount)"></DxChartAxisTitle>
+    </DxChartValueAxis>
+    <DxChartArgumentAxis>
+        <DxChartAxisTitle Text="@nameof(Sales.City)"></DxChartAxisTitle>
+    </DxChartArgumentAxis>
+</DxChart>
+
+@code
+{
+    int Year;
+    public void SelectedRecordChanged(Sales sales)
+    {
+        Year = sales.Year;
+        SelectedChartData = allData.Where(i => i.Year == Year);
+        InvokeAsync(StateHasChanged);
+    }
+
+    public IEnumerable<Sales> SelectedChartData;
+
+    List<Sales> GridData = new List<Sales>();
+
+
+    List<Sales> allData = Sales.GetSalesList();
+
+    protected override async Task OnInitializedAsync()
+    {
+        GridData =
+           allData.GroupBy(i => i.Year).Select(g => g.First()).ToList();
+        Year = GridData.First().Year;
+        SelectedChartData = allData.Where(i => i.Year == Year);
+    }
+}
