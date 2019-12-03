@@ -1,7 +1,7 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [Index.razor](./CS/CommandButtonsWithIcons/Pages/Index.razor)
+* [Index.razor](./CS/Charts/Pages/Index.razor)
 <!-- default file list end -->
 
 ### Charts for Blazor - How to filter the chart based on DataGrid selection
