@@ -10,10 +10,3 @@
 [How to display the Chart based on the Grid focus](https://github.com/DevExpress-Examples/blazor-charts-update-chart-data-based-on-grid-focus)
 
 The current repository will not be updated in the future.
-<!-- feedback -->
-## Does this example address your development requirements/objectives?
-
-[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-Charts-how-to-filter-the-chart-based-on-DataGrid-selection&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-Charts-how-to-filter-the-chart-based-on-DataGrid-selection&~~~was_helpful=no)
-
-(you will be redirected to DevExpress.com to submit your response)
-<!-- feedback end -->
